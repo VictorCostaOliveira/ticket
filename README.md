@@ -2,6 +2,19 @@
 
 > A Vue.js project
 
+
+``` bash
+Vuetify
+- https://vuetifyjs.com/en/
+
+Firebase
+- https://github.com/firebase/firebase-js-sdk
+
+Vuex - Pattern to controll states
+- https://github.com/vuejs/vuex
+```
+
+
 ## Build Setup
 
 ``` bash
