@@ -2,22 +2,22 @@
     <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center" mt-5>
-        <h1>Home page</h1>
+        <h1>Senha</h1>
       </v-flex>
-      <v-flex xs12 class="text-xs-center" mt-3>
-        <p>This is a user's home page</p>
-        <v-card>
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">Sua senha</h3>
-              <div v-if="ticket">{{ ticket }}</div>
-              <div v-else>Sem senha</div>
-            </div>
-          </v-card-title>
-          <v-card-actions>
-            <v-btn flat color="black" @click="createTicket">Pedir sua senha</v-btn>
-         <!--    <v-btn flat color="orange">Explore</v-btn> -->
-          </v-card-actions>
+      <v-flex xs12 mt-3>
+        <v-card class="meu-pau">
+          <div class="text-xs-center">
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb-0 center">Sua senha</h3>
+                <h4 class="headline mb-0" v-if="ticket">{{ ticket }}</h4>
+                <div v-else>Sem senha</div>
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <v-btn flat color="black" v-if="!ticket" @click="createTicket">Pedir sua senha</v-btn>
+            </v-card-actions>
+          </div>
         </v-card>
       </v-flex>
     </v-layout>
@@ -28,15 +28,23 @@
   export default {
     data() {
       return {
-        ticket: ''
       }
     },
     methods: {
       createTicket() {
-        this.$store.dispatch('createTicket', {ticket: this.ticket})
+        this.$store.dispatch('createTicket')
+      }
+    },
+    computed: {
+      ticket() {
+        return this.$store.getters.getTicket
       }
     }
   };
 </script>
 
-<style></style>
+<style>
+.meu-pau {
+  background-color: black;
+}
+</style>

@@ -51,18 +51,20 @@ const actions = {
       }
       if (allTickets.length === 0) {
         newTicket.ticket = 1;
-        databaseReference.push(newTicket).then((res) => {
+        databaseReference.push(newTicket).on('value', (res) => {
           commit('setTicket', res.val());
         });
       }else {
         let lastRes = allTickets[allTickets.length - 1];
         newTicket.ticket = lastRes.ticket + 1
-        databaseReference.push(newTicket).then((res) => {
-          commit('setTicket', res.val().ticket);
+        databaseReference.push(newTicket).on('value', (res) => {
+          commit('setTicket', res.val());
         });
       }
     })
   }
 };
+
+
 
 export default actions
