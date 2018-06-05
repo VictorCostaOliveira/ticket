@@ -5,7 +5,7 @@
         <h1>Senha</h1>
       </v-flex>
       <v-flex xs12 mt-3>
-        <v-card class="meu-pau">
+        <v-card >
           <div class="text-xs-center">
             <v-card-title primary-title>
               <div>
@@ -44,7 +44,5 @@
 </script>
 
 <style>
-.meu-pau {
-  background-color: black;
-}
+
 </style>
