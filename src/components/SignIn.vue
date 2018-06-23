@@ -59,22 +59,22 @@
     watch: {
       error(value) {
         if (value) {
-          this.alert = true
+          this.alert = true;
         }
       },
       alert(value) {
         if (!value) {
-          this.$store.commit('setError', null)
+          this.$store.commit('setError', null);
         }
-      }
+      },
     },
     computed: {
       error() {
-        return  this.$store.state.error;
+        return this.$store.state.error;
       },
       loading() {
-        return  this.$store.state.loading;
-      }
+        return this.$store.state.loading;
+      },
     },
   };
 </script>

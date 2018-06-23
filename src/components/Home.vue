@@ -28,18 +28,18 @@
   export default {
     data() {
       return {
-      }
+      };
     },
     methods: {
       createTicket() {
-        this.$store.dispatch('createTicket')
-      }
+        this.$store.dispatch('createTicket');
+      },
     },
     computed: {
       ticket() {
-        return this.$store.getters.getTicket
-      }
-    }
+        return this.$store.getters.getTicket;
+      },
+    },
   };
 </script>
 

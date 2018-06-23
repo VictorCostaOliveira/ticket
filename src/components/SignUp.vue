@@ -64,25 +64,25 @@
     watch: {
       error(value) {
         if (value) {
-          this.alert = true
+          this.alert = true;
         }
       },
       alert(value) {
         if (!value) {
-          this.$store.commit('setError', null)
+          this.$store.commit('setError', null);
         }
-      }
+      },
     },
     computed: {
       comparePasswords() {
         return this.password === this.confirmPassword ? true : 'Passwords don\'t match';
       },
       error() {
-        return  this.$store.state.error;
+        return this.$store.state.error;
       },
       loading() {
-        return  this.$store.state.loading;
-      }
+        return this.$store.state.loading;
+      },
     },
     methods: {
       userSignUp() {

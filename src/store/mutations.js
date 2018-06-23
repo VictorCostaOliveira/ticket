@@ -12,8 +12,8 @@ const mutations = {
   },
 
   setTicket(state, payload) {
-    state.ticket = payload
-  }
+    state.ticket = payload;
+  },
 };
 
-export default mutations
+export default mutations;

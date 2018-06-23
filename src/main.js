@@ -11,12 +11,12 @@ import router from './router';
 Vue.use(Vuetify);
 
 const config = {
-  apiKey: 'AIzaSyBk3K4k3wsP6SnzByEfjAR6uzGsqR-Kb24',
-  authDomain: 'fir-vue-2f19f.firebaseapp.com',
-  databaseURL: 'https://fir-vue-2f19f.firebaseio.com',
-  projectId: 'fir-vue-2f19f',
-  storageBucket: 'fir-vue-2f19f.appspot.com',
-  messagingSenderId: '179796575096',
+  apiKey: 'AIzaSyD1my9sw_EUnSrt32j5v8bv5AeTqR0F2FY',
+  authDomain: 'tickets-587c9.firebaseapp.com',
+  databaseURL: 'https://tickets-587c9.firebaseio.com',
+  projectId: 'tickets-587c9',
+  storageBucket: 'tickets-587c9.appspot.com',
+  messagingSenderId: '944530947723',
 };
 
 firebase.initializeApp(config);
@@ -31,11 +31,11 @@ const unsubscribe = firebase.auth()
     router,
     store,
     render: h => h(App),
-    created () {
+    created() {
       if (firebaseUser) {
-        store.dispatch('autoSignIn', firebaseUser)
+        store.dispatch('autoSignIn', firebaseUser);
       }
-    }
-  })
-  unsubscribe()
-})
+    },
+  });
+  unsubscribe();
+});

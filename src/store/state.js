@@ -3,4 +3,4 @@ export default {
   error: {},
   loading: false,
   ticket: {},
-}
+};

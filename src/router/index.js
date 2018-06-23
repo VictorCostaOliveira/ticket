@@ -7,7 +7,7 @@ const routerOptions = [
   { path: '/', component: 'Landing' },
   { path: '/signin', component: 'SignIn' },
   { path: '/signup', component: 'SignUp' },
-  { path: '/home', component: 'Home', meta: { requiresAuth: true} },
+  { path: '/home', component: 'Home', meta: { requiresAuth: true } },
 ];
 
 const routes = routerOptions.map((route) => {
@@ -30,9 +30,9 @@ router.beforeEach((to, from, next) => {
   const isAutenticated = firebase.auth().currentUser;
   if (requiresAuth && !isAutenticated) {
     next('/signin');
-  }else {
+  } else {
     next();
   }
 });
 
-export default router
+export default router;
