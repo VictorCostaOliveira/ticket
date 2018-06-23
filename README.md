@@ -1,24 +1,25 @@
-# vue-project-firebase
+# Tickets - Aluno
 
 > A Vue.js project
-
-
-``` bash
-Vuetify
-- https://vuetifyjs.com/en/
-
-Firebase
-- https://github.com/firebase/firebase-js-sdk
-
-Vuex - Pattern to controll states
-- https://github.com/vuejs/vuex
-```
 
 
 ## Build Setup
 
 ``` bash
 # install dependencies
+
+Vuex - Pattern to controll states
+- Doc https://vuex.vuejs.org/
+- npm install vuex --save
+
+Firebase - Realtime database
+- https://github.com/firebase/firebase-js-sdk
+- npm install firebase --save
+
+Vuetify
+- https://vuetifyjs.com/en/getting-started/quick-start
+- npm install vuetify --save
+
 npm install
 
 # serve with hot reload at localhost:8080
