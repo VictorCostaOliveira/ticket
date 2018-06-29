@@ -2,47 +2,27 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center" mt-5>
-        <h1>Sign Up</h1>
+        <h1>Aqui você pode se cadastrar</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
         <form @submit.prevent="userSignUp">
           <v-layout column>
             <v-flex>
+              <v-text-field name="name" label="Seu nome" id="name" type="name" v-model="name" required></v-text-field>
+            </v-flex>
+            <v-flex>
+              <v-text-field name="email" label="Seu email" id="user-email" type="text" v-model="email" required></v-text-field>
+            </v-flex>
+            <v-flex>
+              <v-text-field name="user-registration" label="Sua matricula" id="user-registration" v-model="userRegistration" mask="############" required></v-text-field>
+            </v-flex>
+            <v-flex class="text-xs-center" mt-5>
+              <v-btn color="primary" type="submit" :disabled="loading">Cadastrar</v-btn>
+            </v-flex>
+            <v-flex>
               <v-alert type="error" dismissible v-model="alert">
                 {{ error }}
               </v-alert>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                name="email"
-                label="Email"
-                id="email"
-                type="email"
-                v-model="email"
-                required></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                name="password"
-                label="Password"
-                id="password"
-                type="password"
-                v-model="password"
-                required></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                name="confirmPassword"
-                label="Confirm Password"
-                id="confirmPassword"
-                type="password"
-                v-model="confirmPassword"
-                required
-                :rules=[comparePasswords]
-                ></v-text-field>
-            </v-flex>
-            <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit" :disabled="loading">Sign Up</v-btn>
             </v-flex>
           </v-layout>
         </form>
@@ -56,8 +36,8 @@
     data() {
       return {
         email: '',
-        password: '',
-        confirmPassword: '',
+        name: '',
+        userRegistration: '',
         alert: '',
       };
     },
@@ -74,9 +54,6 @@
       },
     },
     computed: {
-      comparePasswords() {
-        return this.password === this.confirmPassword ? true : 'Passwords don\'t match';
-      },
       error() {
         return this.$store.state.error;
       },
@@ -86,8 +63,13 @@
     },
     methods: {
       userSignUp() {
-        if (this.comparePasswords === true) {
-          this.$store.dispatch('userSignUp', { email: this.email, password: this.password });
+        if (this.name !== null && this.userRegistration !== null) {
+          const userData = {
+            email: this.email,
+            name: this.name,
+            userRegistration: this.userRegistration,
+          };
+          this.$store.dispatch('userSignUp', userData);
         }
       },
     },

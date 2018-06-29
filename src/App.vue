@@ -1,6 +1,9 @@
 <template>
   <v-app>
     <v-toolbar app>
+      <v-btn v-if="needBackButton" icon @click="back">
+        <v-icon>arrow_back</v-icon>
+      </v-btn>
       <v-toolbar-title class="text-xs-center">
         <router-link to='/' tag='span' style='cursor: pointer'>
           {{ appTitle }}
@@ -30,6 +33,9 @@ export default {
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
     },
+    back() {
+      window.history.back();
+    },
   },
   computed: {
     menuItems() {
@@ -42,6 +48,9 @@ export default {
         { title: 'Sign in', path: '/signin', icon: 'face' },
         { title: 'Sign up', path: '/signup', icon: 'lock_open' },
       ];
+    },
+    needBackButton() {
+      return this.$route.meta.backButton;
     },
   },
 };

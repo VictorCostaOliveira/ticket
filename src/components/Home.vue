@@ -9,9 +9,8 @@
           <div class="text-xs-center">
             <v-card-title primary-title>
               <div>
-                <h3 class="headline mb-0 center">Sua senha</h3>
-                <h4 class="headline mb-0" v-if="ticket">{{ ticket }}</h4>
-                <div v-else>Sem senha</div>
+                <h2 class="headline mb-0" v-if="ticket">Numero - {{ ticket }}</h2>
+                <h2 class="headline mb-0" v-else>Sem senha</h2>
               </div>
             </v-card-title>
             <v-card-actions>
@@ -28,11 +27,12 @@
   export default {
     data() {
       return {
+        user: this.$store.getters.getUser,
       };
     },
     methods: {
       createTicket() {
-        this.$store.dispatch('createTicket');
+        this.$store.dispatch('createTicket', this.$store.getters.getUser);
       },
     },
     computed: {
