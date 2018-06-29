@@ -3,11 +3,11 @@ import Router from 'vue-router';
 import firebase from 'firebase';
 
 const routerOptions = [
-  { path: '*', component: 'NotFound' },
-  { path: '/', component: 'Landing' },
-  { path: '/signin', component: 'SignIn' },
-  { path: '/signup', component: 'SignUp' },
-  { path: '/home', component: 'Home', meta: { requiresAuth: true } },
+  { path: '*', component: 'NotFound', ame: 'NotFound' },
+  { path: '/', component: 'Landing', name: 'StartPage' },
+  { path: '/signin', component: 'SignIn', name: 'SignIn', meta: { backButton: true } },
+  { path: '/signup', component: 'SignUp', name: 'SignUp', meta: { backButton: true } },
+  { path: '/home', component: 'Home', name: 'Home', meta: { requiresAuth: true, backButton: true } },
 ];
 
 const routes = routerOptions.map((route) => {

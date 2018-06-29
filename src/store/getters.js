@@ -4,7 +4,11 @@ const getters = {
   },
 
   getTicket(state) {
-    return state.ticket.ticket;
+    return state.ticket.number;
+  },
+
+  getUser(state) {
+    return state.user;
   },
 };
 
